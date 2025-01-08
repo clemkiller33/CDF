@@ -1,0 +1,219 @@
+/* Fonts css */
+@font-face {
+    font-family: 'Marianne';
+    src: url(../fonts/Marianne/Marianne-Medium.otf);
+}
+
+/* Var css */
+:root {
+    --primary-color: #0004FF;
+    --secondary-color: #F00;
+    --background-color: #fff;
+    --text-color: #000;
+    --text-secondary-color: #878787;
+    --font-family: 'Marianne', 'sans-serif';
+    --font-size: 16px;
+    --padding: 10px;
+    --margin: 10px;
+}
+
+/* Global css */
+html, body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+}
+
+/* Header css */
+header{
+    width: calc(100%);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0px 0px 0px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    height: 195px;
+    z-index: 1000;
+    flex-shrink: 0;
+}
+
+header > .top{
+    display: flex;
+    border-bottom: solid 2px #BBBBBB;
+    padding-bottom: 10px;
+}
+
+header > .top > .left{
+    width: fit-content;
+    margin-right: 64px;
+    padding-left: 32px;
+}
+
+header > .top > .left > .icone > .flag {
+    width: 53px;
+    aspect-ratio: 5.3/3.4;
+}
+
+header > .top > .left > .icone > .flag > img{
+    width: 100%;
+    height: 100%;
+}
+
+header > .top > .left > .icone > .title{
+    font-size: 1.3125rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+header > .top > .left > .icone > .devise{
+    font-size: 0.8rem;
+    color: var(--text-color);
+    /* italic */
+    font-style: italic;
+}
+
+
+header > .top > .middle{
+    width: 40%;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-right: auto;
+}
+
+header > .top > .middle > h2{
+    font-size: 1.3125rem;
+    margin: 10px 0px 10px 0px;
+}
+
+header > .top > .middle > h5{
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 0px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+header > .top > .middle > .spacer{
+    height: 1.3rem;
+    width: 100%;
+}
+
+
+header > .top > .right{
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 32px;
+}
+
+header > .top > .right > .top{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: auto;
+    font-weight: bold;
+}
+
+header > .top > .right > .top > .login{
+    font-size: 1.3125rem;
+    color: var(--primary-color);
+    margin-right: 20px;
+}
+header > .top > .right > .top > .deposer{
+    font-size: 1.3125rem;
+    color: var(--secondary-color);
+}
+
+header > .top > .right > .bottom{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+}
+
+header > .top > .right > .bottom > .search{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    border-radius: 8px 8px 0px 0px;
+    border-bottom: 1px solid #000;
+    background: #EEE;
+}
+
+header > .top > .right > .bottom > .search > input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+header > .top > .right > .bottom > .search > button{
+    width: 75px;
+    height: 100%;
+    color: #fff;
+    border-radius: 0px 8px 0px 0px;
+    background: #0004FF;
+}
+
+header > .navbar{
+    display: flex;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+header > .navbar > .menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    list-style-type: none;
+    padding-inline-start: 32px;
+}
+
+header > .navbar > .menu > .separator{
+    margin: auto;
+}
+
+header > .navbar > .menu > .item{
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0px 10px 0px 10px;
+}
+
+header > .navbar > .menu > .item > a:hover{
+    color: #0004FF;
+}
+
+header > .navbar > .menu > .item > a{
+    text-decoration: none;
+    color: #000000;
+}
+
+/* Content css */
+.content{
+    flex-grow: 1;
+    margin-top: 24px;
+    padding: 0px 32px 0px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
