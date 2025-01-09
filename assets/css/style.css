@@ -6,13 +6,13 @@
 
 /* Var css */
 :root {
-    --primary-color: #0004FF;
+    --primary-color: #000091;
     --secondary-color: #F00;
     --background-color: #fff;
     --text-color: #000;
     --text-secondary-color: #878787;
     --font-family: 'Marianne', 'sans-serif';
-    --font-size: 16px;
+    --font-size: .875rem;
     --padding: 10px;
     --margin: 10px;
 }
@@ -21,11 +21,16 @@
 html, body{
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: var(--font-family);
+}
+
+.separator{
+    margin: auto;
 }
 
 /* Header css */
@@ -46,7 +51,7 @@ header{
 
 header > .top{
     display: flex;
-    border-bottom: solid 2px #BBBBBB;
+    box-shadow: 0 1px 0 0 #ddd;
     padding-bottom: 10px;
 }
 
@@ -58,7 +63,7 @@ header > .top > .left{
 
 header > .top > .left > .icone > .flag {
     width: 53px;
-    aspect-ratio: 5.3/3.4;
+    aspect-ratio: 6/3;
 }
 
 header > .top > .left > .icone > .flag > img{
@@ -67,13 +72,13 @@ header > .top > .left > .icone > .flag > img{
 }
 
 header > .top > .left > .icone > .title{
-    font-size: 1.3125rem;
+    font-size: var(--font-size);
     font-weight: bold;
     color: var(--text-color);
 }
 
 header > .top > .left > .icone > .devise{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--text-color);
     /* italic */
     font-style: italic;
@@ -126,12 +131,12 @@ header > .top > .right > .top{
 }
 
 header > .top > .right > .top > .login{
-    font-size: 1.3125rem;
+    font-size: .875rem;
     color: var(--primary-color);
     margin-right: 20px;
 }
 header > .top > .right > .top > .deposer{
-    font-size: 1.3125rem;
+    font-size: .875rem;
     color: var(--secondary-color);
 }
 
@@ -149,8 +154,8 @@ header > .top > .right > .bottom > .search{
     display: flex;
     justify-content: end;
     align-items: center;
-    border-radius: 8px 8px 0px 0px;
-    border-bottom: 1px solid #000;
+    border-radius: 4px 4px 0px 0px;
+    border-bottom: 2px solid var(--primary-color);
     background: #EEE;
 }
 
@@ -163,17 +168,31 @@ header > .top > .right > .bottom > .search > input{
     color: var(--text-color);
 }
 
+header > .top > .right > .bottom > .search > input:focus{
+    outline: none;
+}
+
+header > .top > .right > .bottom > .search > input::placeholder{
+    color: var(--text-secondary-color);
+}
+
 header > .top > .right > .bottom > .search > button{
-    width: 75px;
     height: 100%;
+    aspect-ratio: 1.5   /1;
     color: #fff;
-    border-radius: 0px 8px 0px 0px;
-    background: #0004FF;
+    border-radius: 0px 4px 0px 0px;
+    background: var(--primary-color);
+}
+
+header > .top > .right > .bottom > .search > button > img{
+    width: 20px;
+    aspect-ratio: 1/1;
+    margin-top: 5%;
 }
 
 header > .navbar{
     display: flex;
-    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 3px 5px 0px #dddddda4;
 }
 
 header > .navbar > .menu{
@@ -192,15 +211,14 @@ header > .navbar > .menu > .separator{
 }
 
 header > .navbar > .menu > .item{
-    font-size: 1rem;
+    font-size: .875rem;
     color: #fff;
-    font-weight: bold;
     text-transform: uppercase;
     padding: 0px 10px 0px 10px;
 }
 
 header > .navbar > .menu > .item > a:hover{
-    color: #0004FF;
+    color: var(--primary-color);
 }
 
 header > .navbar > .menu > .item > a{
@@ -211,8 +229,9 @@ header > .navbar > .menu > .item > a{
 /* Content css */
 .content{
     flex-grow: 1;
-    margin-top: 24px;
-    padding: 0px 32px 0px 32px;
+    margin-top: 16px;
+    padding: 0px 64px 0px 64px;
+    width: calc(100% - 128px);
     display: flex;
     flex-direction: column;
     align-items: center;
