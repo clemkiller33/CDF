@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caisse des Denonciations Française</title>
+
+    <link rel="icon" href="./assets/img/flag.webp" type="image/webp">
+
+    <!-- Link CSS Files -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/new.css">
+</head>
+<body>
+    <header>
+        <div class="top">
+            <div class="left">
+                <div class="icone">
+                    <div class="flag">
+                        <img src="./assets/img/flag.webp" alt="">
+                    </div>
+                    <div class="title">REPUBLIC<br>FRANCAISE</div>
+                    <div class="devise">Liberté, Egalité, Fraternité</div>
+                </div>
+            </div>
+            <div class="middle">
+                <h2>Caisse des Denonciations Française</h2>
+                <h5>Le site officiel pour dénoncer comme en 39-45 !</h5>
+                <div class="spacer"></div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <div class="login" onclick="window.location.href = './login.html'">
+                        <i></i>
+                        Se  connecter
+                    </div>
+                    <div class="deposer">Déposer un signalement</div>
+                </div>
+                <div class="bottom">
+                    <div class="search">
+                        <input type="text" placeholder=" Recherchez une localisation, personne, faits, ...">
+                        <button><img src="./assets/img/icons/search.svg" alt="" srcset=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            <ul class="menu">
+                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset=""></a></li>
+                <li class="item"><a href="stats.html">Statistiques</a></li>
+                <li class="item"><a href="map.html">Carte</a></li>
+                <li class="item"><a href="#">Platforme</a></li>
+                <li class="item"><a href="#">Aide</a></li>
+                <div class="separator"></div>
+                <li class="item"><a href="#">Confidentialité</a></li>
+                <li class="item"><a href="#">Mentions Légales</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="content">
+        <div class="form">
+            <div class="france_connect">
+                <p>Vous êtes sur le point de dénoncer une personne, entreprise ou un comportement à l’aide d’un signalement en ligne</p>
+                <a href="#">Besoin d’aide ? </a>
+            </div>
+            <div class="identifiants">
+                <h3>Signalement en ligne</h3>
+                <div class="input-group">
+                    <label for="">Intitulé du signalement</label>
+                    <span>Par exemple : Mon voisin est un Chômeur</span>
+                    <input type="text">
+                </div>
+                <div class="input-group">
+                    <label for="">Date du signalement</label>
+                    <span>JJ / MM / AAAA</span>
+                    <input type="text">
+                </div>
+                <div class="input-group">
+                    <label for="">Description du signalement</label>
+                    <span>Soyez le plus précis possible !</span>
+                    <input type="text">
+                </div>
+                <div class="input-group">
+                    <label for="">Catégorie du Signalement</label>
+                    <span>Selectionnez une option ci-dessous</span>
+                    <input type="text">
+                </div>
+                <div class="input-group">
+                    <label for="">Lieu du Signalement</label>
+                    <span>Adresse Postale</span>
+                    <input type="text">
+                </div>
+                <div class="input-group">
+                    <label for="">Code Postalle / Ville</label>
+                    <span>Entrez les premiers caractères et selectionnez l’option</span>
+                    <input type="text">
+                </div>
+                <div class="input-group">
+                    <label for="">Fichiers Additionnels</label>
+                    <span>Ajoutez des images, videos, documents pour appuyer votre signalement</span>
+                    <input type="file">
+                </div>
+                <div class="action">
+                    <a href="#">Formats pris en compte ?</a>
+                    <div class="separator"></div>
+                    <button>Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

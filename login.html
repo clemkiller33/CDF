@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caisse des Denonciations Française</title>
+
+    <link rel="icon" href="./assets/img/flag.webp" type="image/webp">
+
+    <!-- Link CSS Files -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
+</head>
+<body>
+    <header>
+        <div class="top">
+            <div class="left">
+                <div class="icone">
+                    <div class="flag">
+                        <img src="./assets/img/flag.webp" alt="">
+                    </div>
+                    <div class="title">REPUBLIC<br>FRANCAISE</div>
+                    <div class="devise">Liberté, Egalité, Fraternité</div>
+                </div>
+            </div>
+            <div class="middle">
+                <h2>Caisse des Denonciations Française</h2>
+                <h5>Le site officiel pour dénoncer comme en 39-45 !</h5>
+                <div class="spacer"></div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <div class="login">
+                        <i></i>
+                        Se  connecter
+                    </div>
+                    <div class="deposer" onclick="window.location.href = './new.html'">Déposer un signalement</div>
+                </div>
+                <div class="bottom">
+                    <div class="search">
+                        <input type="text" placeholder=" Recherchez une localisation, personne, faits, ...">
+                        <button><img src="./assets/img/icons/search.svg" alt="" srcset=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            <ul class="menu">
+                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset=""></a></li>
+                <li class="item"><a href="stats.html">Statistiques</a></li>
+                <li class="item"><a href="map.html">Carte</a></li>
+                <li class="item"><a href="#">Platforme</a></li>
+                <li class="item"><a href="#">Aide</a></li>
+                <div class="separator"></div>
+                <li class="item"><a href="#">Confidentialité</a></li>
+                <li class="item"><a href="#">Mentions Légales</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="content">
+        <div class="form">
+            <h2>Se connecter</h2>
+            <div class="france_connect">
+                <p>FranceConnect est la solution proposée par l’Etat pour sécuriser et simplifier la connexion à vos services en ligne.</p>
+                <button class="fc_btn"></button>
+                <a href="#">Qu'est-ce que FranceConnect ? </a>
+            </div>
+            <div class="identifiants">
+                <h3>Ou utiliser vos identifiants</h3>
+                <div class="input-group">
+                    <label for="">Votre email personnel</label>
+                    <span>Par exemple : nom@example.com</span>
+                    <input type="text">
+                </div>
+                <div class="input-group">
+                    <label for="">Votre mot de passe</label>
+                    <input type="text">
+                </div>
+                <div class="action">
+                    <a href="#">Mot de passe oublié ?</a>
+                    <div class="separator"></div>
+                    <button>Se connecter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
