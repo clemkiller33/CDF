@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caisse des Denonciations Française</title>
+
+    <link rel="icon" href="./assets/img/flag.webp" type="image/webp">
+
+    <!-- Link CSS Files -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/help.css">
+</head>
+<body>
+    <header>
+        <div class="top">
+            <div class="left">
+                <div class="icone">
+                    <div class="flag">
+                        <img src="./assets/img/flag.webp" alt="">
+                    </div>
+                    <div class="title">REPUBLIC<br>FRANCAISE</div>
+                    <div class="devise">Liberté, Egalité, Fraternité</div>
+                </div>
+            </div>
+            <div class="middle">
+                <h2>Caisse des Denonciations Française</h2>
+                <h5>Le site officiel pour dénoncer comme en 39-45 !</h5>
+                <div class="spacer"></div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <div class="login">
+                        <i></i>
+                        Se  connecter
+                    </div>
+                    <div class="deposer" onclick="window.location.href = './new.html'">Déposer un signalement</div>
+                </div>
+                <div class="bottom">
+                    <div class="search">
+                        <input type="text" placeholder=" Recherchez une localisation, personne, faits, ...">
+                        <button><img src="./assets/img/icons/search.svg" alt="" srcset=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            <ul class="menu">
+                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset=""></a></li>
+                <li class="item"><a href="stats.html">Statistiques</a></li>
+                <li class="item"><a href="map.html">Carte</a></li>
+                <li class="item"><a href="#">Platforme</a></li>
+                <li class="item"><a href="#">Aide</a></li>
+                <div class="separator"></div>
+                <li class="item"><a href="#">Confidentialité</a></li>
+                <li class="item"><a href="#">Mentions Légales</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="content">
+        <div class="form">
+            <h2>Vous avez besoin d'aide ?</h2>
+            <div class="france_connect">
+                <h3>Un problème ?</h3>
+                <div class="input-group column">
+                    <label for="">Se Connecter :</label>
+                    <span onclick="showModal('Aide à la connexion', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Aide à la connexion</span>
+                </div>
+                <div class="input-group column">
+                    <label for="">Deposer un signalement</label>
+                    <span onclick="showModal('Aide au signalement', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Aide au signalement </span>
+                </div>
+                <div class="input-group column">
+                    <label for="">Suivre mon signalement</label>
+                    <span onclick="showModal('Aide au suivi', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Aide au suivi </span>
+                </div>
+                
+                <div class="input-group column">
+                    <label for="">Déposer un Contre Signalement</label>
+                    <span onclick="showModal('Aide à la parade', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Aide à la parade </span>
+                </div>
+            </div><br>
+            <div class="france_connect column">
+                <h3>Une suggestion sur le site ?</h3>
+                <div class="input-group">
+                    <label for="">Donner votre avis</label>
+                    <span onclick="showModal('Aide au Feedback', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Aide au Feedback</span>
+                </div>
+            </div><br>
+            <div class="france_connect column">
+                <h3>[BETA] - MyLittleCollab APP</h3>
+                <p>La Caisse des Dénonciations Françaises (CGF) lance bientôt la phase de test de son application mobile dédiée à la récompense et à la fidélité. Ce lancement en avant-première vous offre l’opportunité exclusive de découvrir en avant-première les nouvelles fonctionnalités : quêtes, missions, mini-jeux et bien plus encore ! En tant que Beta Testeur, vous pourrez explorer l’application, partager vos retours et contribuer à son perfectionnement. Votre avis est essentiel pour garantir une expérience optimale pour tous les utilisateurs. Inscrivez-vous dès maintenant pour devenir Beta Testeur et participez à cette aventure innovante ! Ensemble, construisons un service plus performant et engageant.</p>
+                <div class="input-group">
+                    <label for="">Rejoignez la phase de Test</label>
+                    <span onclick="showModal('Installez l\'App !', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Android - IOS - Windows - MacOS - Linux</span>
+                </div>
+            </div><br>
+            <div class="action">
+                <a href="#">Contre-signalement</a>
+                <div class="separator"></div>
+                <button>Utile</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="hideModal()">&times;</span>
+                <h2 class="modal_title_utils">Section Concrnée</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal_content_utils">
+                    Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.
+                    <br><br>
+                    Turpis ornare quis donec laoreet mauris a vel turpis vel. Magna enim consequat aliquet ipsum nisi. Diam ullamcorper eu feugiat ullamcorper nulla nulla. Enim bibendum proin amet viverra. Nunc viverra quis tellus nibh.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal_button_utils">Accéder à la ressource</button>
+                <button class="close" onclick="hideModal()">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./assets/js/modal.js"></script>
+</body>
+</html>
