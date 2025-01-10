@@ -6,7 +6,7 @@
 
     <!-- Link CSS Files -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/stats.css">
 </head>
 <body>
     <header>
@@ -58,28 +58,64 @@
         <div class="view">
             <div class="left">
                 <div class="item">
-                    <h3>750 +</h3>
-                    <h5>VOISINS</h5>
+                    <h3>TOP 10</h3>
+                    <h5>REGIONS</h5>
                 </div>
                 <div class="item">
-                    <h3>1K +</h3>
-                    <h5>PARENTS / ENFANTS</h5>
+                    <h3>TOP 10</h3>
+                    <h5>DEPARTEMENT</h5>
                 </div>
             </div>
             <div class="middle">
-                <iframe src="https://umap.openstreetmap.fr/fr/map/challenge-web_1161767#6/47.242/3.230" width="100%" height="80%" frameborder="0"></iframe>
+                <canvas id="myChart"></canvas>
             </div>
             <div class="right">
                 <div class="item">
-                    <h3>800 +</h3>
-                    <h5>CHOMEURS</h5>
+                    <h3>TOP 10</h3>
+                    <h5>VILLES</h5>
                 </div>
                 <div class="item">
-                    <h3>500 +</h3>
-                    <h5>RETRAITE</h5>
+                    <h3>TOP 10</h3>
+                    <h5>CATEGORIES</h5>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'polarArea',
+          data: {
+  labels: [
+    'Enfants',
+    'Jeunes',
+    'Chomeurs',
+    'Parents',
+    'Retraités'
+  ],
+  datasets: [{
+    label: 'Signalés (en milliers)',
+    data: [7, 10, 15, 3, 14],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(75, 192, 192)',
+      'rgb(255, 205, 86)',
+      'rgb(201, 203, 207)',
+      'rgb(54, 162, 235)'
+    ]
+  }]
+},
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
 </body>
 </html>
