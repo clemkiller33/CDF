@@ -67,17 +67,17 @@
                 <div class="input-group">
                     <label for="">Intitulé du signalement</label>
                     <span>Par exemple : Mon voisin est un Chômeur</span>
-                    <input type="text">
+                    <input id="title" type="text">
                 </div>
                 <div class="input-group">
                     <label for="">Date du signalement</label>
                     <span>JJ / MM / AAAA</span>
-                    <input type="text">
+                    <input id="date" type="text">
                 </div>
                 <div class="input-group">
                     <label for="">Description du signalement</label>
                     <span>Soyez le plus précis possible !</span>
-                    <input type="text">
+                    <input id="description" type="text">
                 </div>
                 <div class="input-group">
                     <label for="">Catégorie du Signalement</label>
@@ -89,7 +89,7 @@
                 <div class="input-group">
                     <label for="">Lieu du Signalement</label>
                     <span>Adresse Postale</span>
-                    <input type="text">
+                    <input id="location" type="text">
                 </div>
                 <div class="input-group">
                     <label for="">Code Postalle / Ville</label>
@@ -100,7 +100,7 @@
                 <div class="input-group">
                     <label for="">Fichiers Additionnels</label>
                     <span>Ajoutez des images, videos, documents pour appuyer votre signalement</span>
-                    <input type="file">
+                    <input id="files" type="file">
                 </div>
                 <div class="action">
                     <a href="#">Formats pris en compte ?</a>
@@ -110,6 +110,70 @@
             </div>
         </div>
     </div>
+    <script>
+        // API & Authentification
+        let server = 'http://cours.localhost/2024-2025/challenge_web/';
+        let token = '289a1f7df886d34a6776665fd52f4d9da27b75e104202b809075f7b1d35d0f09';
+        let key = 'e1ef63c7ba4a2846bf3464d92f8dee560416849b2029c2d94b43aef3affe954b';
+    </script>
+    <script>
+        // Met en variables les éléments du formulaire
+        let title = document.getElementById('title');
+        let date = document.getElementById('date');
+        let description = document.getElementById('description');
+        let categories = document.getElementById('selector');
+        let location = document.getElementById('location');
+        let city_zip = document.getElementById('city_zip');
+        // let files = document.getElementById('files');
+        let button = document.querySelector('button');
+
+        // Ajoute un événement au clic sur le bouton
+        button.addEventListener("click", function() {
+            // Récupère les valeurs des champs du formulaire
+            let titleValue = title.value;
+            let dateValue = date.value;
+            let descriptionValue = description.value;
+            let categoriesValue = Array.from(categories.selectedOptions).map(option => option.value);
+            let locationValue = location.value;
+            let city_zipValue = city_zip.value;
+            // let filesValue = files.value;
+
+            // Vérifie si les champs sont vides
+            if (titleValue === '' || dateValue === '' || descriptionValue === '' || categoriesValue.length === 0 || locationValue === '' || city_zipValue === '') {
+                alert('Veuillez remplir tous les champs du formulaire');
+                return;
+            }
+
+            // Crée un objet FormData pour envoyer les données
+            let formData = new FormData();
+            formData.append('title', titleValue);
+            formData.append('date', dateValue);
+            formData.append('description', descriptionValue);
+            formData.append('categories', categoriesValue.join(','));
+            formData.append('location', locationValue);
+            formData.append('city_zip', city_zipValue);
+            // formData.append('files', filesValue);
+
+            // Effectue une requête POST à l'API
+            fetch(`${server}?token=${token}&key=${key}&api=add&action=signalement`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Vérifie si la requête est réussie
+                if (data.out) {
+                    alert('Signalement envoyé avec succès');
+                } else {
+                    alert('Erreur lors de l\'envoi du signalement');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur de requête:', error);
+            });
+        });
+    </script>
     <script>
         const input = document.getElementById('city_zip');
         const autocompleteList = document.getElementById('autocomplete-list');
@@ -165,7 +229,7 @@
     </script>
     <script>
         // Effectuer la requête HTTP GET pour récupérer le JSON
-        fetch('http://cours.localhost/2024-2025/challenge_web/?token=289a1f7df886d34a6776665fd52f4d9da27b75e104202b809075f7b1d35d0f09&key=e1ef63c7ba4a2846bf3464d92f8dee560416849b2029c2d94b43aef3affe954b&api=add&action=categorie')
+        fetch(`${server}?token=${token}&key=${key}&api=add&action=categorie`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
