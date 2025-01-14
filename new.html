@@ -105,165 +105,39 @@
                 <div class="action">
                     <a href="#">Formats pris en compte ?</a>
                     <div class="separator"></div>
-                    <button>Envoyer</button>
+                    <button id="send">Envoyer</button>
+                    <br><br>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- JS Scripts -->
     <script>
         // API & Authentification
         let server = 'http://cours.localhost/2024-2025/challenge_web/';
         let token = '289a1f7df886d34a6776665fd52f4d9da27b75e104202b809075f7b1d35d0f09';
         let key = 'e1ef63c7ba4a2846bf3464d92f8dee560416849b2029c2d94b43aef3affe954b';
     </script>
-    <script>
-        // Met en variables les éléments du formulaire
-        let title = document.getElementById('title');
+    <!-- Send Data -->
+    <script src="./assets/js/sender.js">
+    </script>
+    <!-- Autocomplete city -->
+    <script src="./assets/js/autocomplete.js"></script>
+    <!-- Get Categories -->
+    <script src="./assets/js/categories.js"></script>
+    <!-- Display Selected Categories -->
+    <script src="./assets/js/displayer.js"></script>
+    <!-- Date Parser -->
+     <script>
         let date = document.getElementById('date');
-        let description = document.getElementById('description');
-        let categories = document.getElementById('selector');
-        let location = document.getElementById('location');
-        let city_zip = document.getElementById('city_zip');
-        // let files = document.getElementById('files');
-        let button = document.querySelector('button');
-
-        // Ajoute un événement au clic sur le bouton
-        button.addEventListener("click", function() {
-            // Récupère les valeurs des champs du formulaire
-            let titleValue = title.value;
-            let dateValue = date.value;
-            let descriptionValue = description.value;
-            let categoriesValue = Array.from(categories.selectedOptions).map(option => option.value);
-            let locationValue = location.value;
-            let city_zipValue = city_zip.value;
-            // let filesValue = files.value;
-
-            // Vérifie si les champs sont vides
-            if (titleValue === '' || dateValue === '' || descriptionValue === '' || categoriesValue.length === 0 || locationValue === '' || city_zipValue === '') {
-                alert('Veuillez remplir tous les champs du formulaire');
-                return;
-            }
-
-            // Crée un objet FormData pour envoyer les données
-            let formData = new FormData();
-            formData.append('title', titleValue);
-            formData.append('date', dateValue);
-            formData.append('description', descriptionValue);
-            formData.append('categories', categoriesValue.join(','));
-            formData.append('location', locationValue);
-            formData.append('city_zip', city_zipValue);
-            // formData.append('files', filesValue);
-
-            // Effectue une requête POST à l'API
-            fetch(`${server}?token=${token}&key=${key}&api=add&action=signalement`, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // Vérifie si la requête est réussie
-                if (data.out) {
-                    alert('Signalement envoyé avec succès');
-                } else {
-                    alert('Erreur lors de l\'envoi du signalement');
-                }
-            })
-            .catch(error => {
-                console.error('Erreur de requête:', error);
-            });
-        });
-    </script>
-    <script>
-        const input = document.getElementById('city_zip');
-        const autocompleteList = document.getElementById('autocomplete-list');
-
-        input.addEventListener('input', function() {
-            const query = input.value.trim();
-            
-            if (query.length < 2) {
-                autocompleteList.innerHTML = ''; // Effacer la liste si la saisie est inférieure à 2 caractères
-                return;
-            }
-
-            // Faire une requête à l'API Geonames (ou autre source)
-            fetch(`https://api-adresse.data.gouv.fr/search/?q=${query}&type=municipality&limit=5`)
-                .then(response => response.json())
-                .then(data => {
-                    autocompleteList.innerHTML = ''; // Vider la liste avant de la remplir
-
-                    // Vérifier si des résultats sont trouvés
-                    if (data.features) {
-                        data.features.forEach(item => {
-                            const city = item.properties.city;
-                            const postcode = item.properties.postcode;
-                            const displayValue = `${city} (${postcode})`;
-
-                            // Créer un élément de liste d'autocomplétion
-                            const option = document.createElement('div');
-                            option.textContent = displayValue;
-                            option.dataset.value = displayValue;
-                            
-                            // Ajouter un événement au clic sur une option
-                            option.addEventListener('click', function() {
-                                input.value = option.dataset.value;
-                                autocompleteList.innerHTML = ''; // Vider la liste après sélection
-                            });
-
-                            autocompleteList.appendChild(option);
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('Erreur lors de la récupération des données:', error);
-                });
-        });
-
-        // Fermer la liste d'autocomplétion si l'utilisateur clique à l'extérieur
-        document.addEventListener('click', function(event) {
-            if (!autocompleteList.contains(event.target) && event.target !== input) {
-                autocompleteList.innerHTML = ''; // Fermer la liste
-                
+        date.addEventListener('input', function() {
+            let value = date.value;
+            if (value.length == 2 || value.length == 5) {
+                date.value += '-';
             }
         });
-    </script>
-    <script>
-        // Effectuer la requête HTTP GET pour récupérer le JSON
-        fetch(`${server}?token=${token}&key=${key}&api=add&action=categorie`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // Vérifier si la requête est réussie
-                if (data.out) {
-                    const select = document.getElementById('selector');
-                    const categories = data.data;
-
-                    // Parcourir les catégories et ajouter chaque option au select
-                    categories.forEach(category => {
-                        const option = document.createElement('option');
-                        option.value = category.value;
-                        option.textContent = category.label;
-                        select.appendChild(option);
-                    });
-                } else {
-                    console.error('Erreur dans les données retournées');
-                }
-            })
-            .catch(error => {
-                console.error('Erreur de requête:', error);
-            });
-    </script>
-    <script>
-        document.getElementById('selector').addEventListener('change', function() {
-            const selectedOptions = Array.from(this.selectedOptions).map(option => option.text);
-            const disabledOption = this.querySelector('option[disabled]');
-            if (selectedOptions.length > 0) {
-                disabledOption.textContent = "Catégorie(s) : " + selectedOptions.join(', ');
-            } else {
-                disabledOption.textContent = 'Selectionnez une ou plusieurs catégories';
-            }
-        });
-    </script>
+     </script>
 
 </body>
 </html>
