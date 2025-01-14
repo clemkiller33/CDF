@@ -87,34 +87,34 @@
         const ctx = document.getElementById('myChart');
       
         new Chart(ctx, {
-          type: 'polarArea',
-          data: {
-  labels: [
-    'Enfants',
-    'Jeunes',
-    'Chomeurs',
-    'Parents',
-    'Retraités'
-  ],
-  datasets: [{
-    label: 'Signalés (en milliers)',
-    data: [7, 10, 15, 3, 14],
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(75, 192, 192)',
-      'rgb(255, 205, 86)',
-      'rgb(201, 203, 207)',
-      'rgb(54, 162, 235)'
-    ]
-  }]
-},
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
+            type: 'polarArea',
+            data: {
+                labels: [
+                    'Enfants',
+                    'Jeunes',
+                    'Chomeurs',
+                    'Parents',
+                    'Retraités'
+                ],
+                datasets: [{
+                    label: 'Signalés (en milliers)',
+                    data: [7, 10, 15, 3, 14],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(75, 192, 192)',
+                        'rgb(255, 205, 86)',
+                        'rgb(201, 203, 207)',
+                        'rgb(54, 162, 235)'
+                    ]
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
             }
-          }
         });
       </script>
 </body>
