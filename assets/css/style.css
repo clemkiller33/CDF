@@ -236,3 +236,56 @@ header > .navbar > .menu > .item > a{
     flex-direction: column;
     align-items: center;
 }
+
+.navbar_mobil{
+    display: none;
+}
+@media screen and (max-width: 1000px) {
+    header > .top > .middle > h2{
+        font-size: .8rem;
+    }
+    header > .top > .middle > h5 {
+        font-size: 10px
+    }
+    
+    header > .navbar{
+        display: none;
+    }
+
+    .navbar_mobil{
+        display: flex;
+        
+    }
+   #menuBurger{
+        width:50px;
+    }
+    .item_mobil{
+        list-style: none;
+    }
+
+    header > .top > .right > .top > .login {
+        font-size: 0.7rem;
+    }
+    header > .top > .right > .top > .deposer {
+        font-size: 0.7rem;
+    }
+    ul.menu {
+        display: flex;
+        flex-direction: row; 
+        justify-content: center;
+        align-items: center;
+        list-style: none;  
+        margin: 0;
+        padding: 0;
+        gap:15px;
+      }
+    .item_mobil>a{
+        text-decoration: none;
+
+    }
+    .left
+    .right{
+        display: none;
+    }
+      
+  }
