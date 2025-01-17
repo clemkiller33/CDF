@@ -1,0 +1,41 @@
+#grid_recherche {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 15px;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .signalement {
+    background-color: #0004FF;
+    border-radius: 8px ;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .signalement .text h3 {
+    margin: 0 0 0.5rem 0;
+    color: white;
+  }
+  
+  .signalement .text h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    color: white;
+  }
+  
+  .signalement .text p,
+  .signalement .date_heure p {
+    margin: 0.25rem 0;
+    font-size: 0.85rem;
+    color: white;
+  }
+  
+  .signalement .date_heure {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: white;
+  }

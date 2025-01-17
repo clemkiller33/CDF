@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signalement unitaire</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/recherche_signalement.css" />
+</head>
+<body>
+  <header>
+           <div class="top">
+            <div class="left">
+                <div class="icone">
+                    <div class="flag">
+                        <img src="./assets/img/flag.webp" alt="">
+                    </div>
+                    <div class="title">REPUBLIC<br>FRANCAISE</div>
+                    <div class="devise">Liberté, Egalité, Fraternité</div>
+                </div>
+            </div>
+            <div class="middle">
+                <h2>Caisse des Denonciations Française</h2>
+                <h5>Le site officiel pour dénoncer comme en 39-45 !</h5>
+                <div class="spacer"></div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <div class="login" onclick="window.location.href = './login.html'">
+                        <i></i>
+                        Se  connecter
+                    </div>
+                    <div class="deposer">Déposer un signalement</div>
+                </div>
+                <div class="bottom">
+                    <div class="search">
+                        <input type="text" placeholder=" Recherchez une localisation, personne, faits, ...">
+                        <button>Q</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            <ul class="menu">
+                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset=""></a></li>
+                <li class="item"><a href="stats.html">Statistiques</a></li>
+                <li class="item"><a href="map.html">Carte</a></li>
+                <li class="item"><a href="about.html">Platforme</a></li>
+                <li class="item"><a href="help.html">Aide</a></li>
+                <div class="separator"></div>
+                <li class="item"><a href="confidentialité.html">Confidentialité</a></li>
+                <li class="item"><a href="legal_mentions.html">Mentions Légales</a></li>
+            </ul>
+        </div>
+        <div class="navbar_mobil">
+            <ul class=" menu">
+                <li class="item_mobil"><a href="#" onclick="bgmenu()"><img src="./assets/img/1000_F_373498598_uPMOSdPe6Ul7dxCaHqMub3mYqtY4S02D-removebg-preview.png" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item_mobil" style="display:none"><a href="index.html">Home</a></li>
+                <li class="item_mobil" style="display:none"><a href="stats.html">Stats</a></li>
+                <li class="item_mobil" style="display:none"><a href="map.html">Map</a></li>
+                <li class="item_mobil" style="display:none"><a href="about.html">About</a></li>
+                <li class="item_mobil" style="display:none"><a href="help.html">Help</a></li>
+            </ul>
+        </div>
+  </header>
+  <div id="content">
+    <h2>Résultat de recherche pour :</h2>
+    <div id="grid_recherche">
+      <div class="signalement">
+        <div class="text">
+          <h3>Titre 1</h3>
+          <h4>Ville 1</h4>
+          <p>Description du signalement 1...</p>
+        </div>
+        <div class="date_heure">
+          <p>01/01/2022</p>
+          <p>12:00</p>
+        </div>
+      </div>
+      <div class="signalement">
+        <div class="text">
+          <h3>Titre 2</h3>
+          <h4>Ville 2</h4>
+          <p>Description du signalement 2...</p>
+        </div>
+        <div class="date_heure">
+          <p>02/01/2022</p>
+          <p>13:00</p>
+        </div>
+      </div>
+      <div class="signalement">
+        <div class="text">
+          <h3>Titre 3</h3>
+          <h4>Ville 3</h4>
+          <p>Description du signalement 3...</p>
+        </div>
+        <div class="date_heure">
+          <p>03/01/2022</p>
+          <p>14:00</p>
+        </div>
+      </div>
+      <div class="signalement">
+        <div class="text">
+          <h3>Titre 4</h3>
+          <h4>Ville 4</h4>
+          <p>Description du signalement 4...</p>
+        </div>
+        <div class="date_heure">
+          <p>04/01/2022</p>
+          <p>15:00</p>
+        </div>
+      </div>
+      <div class="signalement">
+        <div class="text">
+          <h3>Titre 5</h3>
+          <h4>Ville 5</h4>
+          <p>Description du signalement 5...</p>
+        </div>
+        <div class="date_heure">
+          <p>05/01/2022</p>
+          <p>16:00</p>
+        </div>
+      </div>
+      <div class="signalement">
+        <div class="text">
+          <h3>Titre 6</h3>
+          <h4>Ville 6</h4>
+          <p>Description du signalement 6...</p>
+        </div>
+        <div class="date_heure">
+          <p>06/01/2022</p>
+          <p>17:00</p>
+        </div>
+      </div>
+      <div class="signalement">
+        <div class="text">
+          <h3>Titre 7</h3>
+          <h4>Ville 7</h4>
+          <p>Description du signalement 7...</p>
+        </div>
+        <div class="date_heure">
+          <p>07/01/2022</p>
+          <p>18:00</p>
+        </div>
+      </div>
+      <div class="signalement">
+        <div class="text">
+          <h3>Titre 8</h3>
+          <h4>Ville 8</h4>
+          <p>Description du signalement 8...</p>
+        </div>
+        <div class="date_heure">
+          <p>08/01/2022</p>
+          <p>19:00</p>
+        </div>
+      </div>
+      <div class="signalement">
+        <div class="text">
+          <h3>Titre 9</h3>
+          <h4>Ville 9</h4>
+          <p>Description du signalement 9...</p>
+        </div>
+        <div class="date_heure">
+          <p>09/01/2022</p>
+          <p>20:00</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
