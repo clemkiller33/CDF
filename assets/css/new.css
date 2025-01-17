@@ -122,8 +122,8 @@ background: #EEE;
 }
 
 .action button{
-    height: 100%;
-    aspect-ratio: 3/1;
+    height: 33px;
+    width: 20%;
     color: #fff;
     border-radius: 0px 4px 0px 0px;
     background: var(--primary-color);
@@ -157,3 +157,18 @@ h3{
     background-color: #ddd;
 }
 
+.account_select{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 0px 25px 0px 25px;
+}
+.account_select:hover{
+    background-color: #ddd;
+}
+
+#arrower{
+    transition: all 0.5s;
+}

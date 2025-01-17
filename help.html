@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="top">
-            <div class="left">
+            <div class="left" id="franceflagger">
                 <div class="icone">
                     <div class="flag">
                         <img src="./assets/img/flag.webp" alt="">
@@ -23,15 +23,17 @@
                 </div>
             </div>
             <div class="middle">
-                <h2>Caisse des Denonciations Française</h2>
-                <h5>Le site officiel pour dénoncer comme en 39-45 !</h5>
+                <h2 id="mobile_middh2">CDF</h2>
+                <h5 id="mobile_middh5">Comme en 39-45</h5>
+                <h2 id="desk_middh2">Caisse des Denonciations Française</h2>
+                <h5 id="desk_middh5">Le site officiel pour dénoncer comme en 39-45 !</h5>
                 <div class="spacer"></div>
             </div>
             <div class="right">
                 <div class="top">
                     <div class="login" onclick="window.location.href = './login.html'">
                         <i></i>
-                        Se  connecter
+                        Signalements
                     </div>
                     <div class="deposer" onclick="window.location.href = './new.html'">Déposer un signalement</div>
                 </div>
@@ -45,14 +47,24 @@
         </div>
         <div class="navbar">
             <ul class="menu">
-                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset=""></a></li>
+                <li class="item"><a href="#"><img src="./assets/img/icons/home.svg" alt="" srcset="" id="menuBurger"></a></li>
                 <li class="item"><a href="stats.html">Statistiques</a></li>
                 <li class="item"><a href="map.html">Carte</a></li>
                 <li class="item"><a href="about.html">Platforme</a></li>
-                <li class="item"><a href="#">Aide</a></li>
+                <li class="item"><a href="help.html">Aide</a></li>
                 <div class="separator"></div>
                 <li class="item"><a href="confidentialité.html">Confidentialité</a></li>
                 <li class="item"><a href="legal_mentions.html">Mentions Légales</a></li>
+            </ul>
+        </div>
+        <div class="navbar_mobil">
+            <ul class="menu">
+                <li class="item_mobil"><a href="#" onclick="bgmenu()"><img src="./assets/img/icons/menu.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item_mobil" style="display:none"><a href="index.html">Home</a></li>
+                <li class="item_mobil" style="display:none"><a href="stats.html">Stats</a></li>
+                <li class="item_mobil" style="display:none"><a href="map.html">Map</a></li>
+                <li class="item_mobil" style="display:none"><a href="about.html">About</a></li>
+                <li class="item_mobil" style="display:none"><a href="help.html">Help</a></li>
             </ul>
         </div>
     </header>
@@ -63,27 +75,27 @@
                 <h3>Un problème ?</h3>
                 <div class="input-group column">
                     <label for="">Se Connecter :</label>
-                    <span onclick="showModal('Aide à la connexion', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Aide à la connexion</span>
+                    <span onclick="showModal('Aide à la connexion', 'Pour se connecter et bien ce n\'est pas possible. En effet une plateforme de signalement anonyme ne pourrais etre réelement anonyme si vous vous inscrivez et vous connectez... Ah la la...')">Aide à la connexion</span>
                 </div>
                 <div class="input-group column">
                     <label for="">Deposer un signalement</label>
-                    <span onclick="showModal('Aide au signalement', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Aide au signalement </span>
+                    <span onclick="showModal('Aide au signalement', 'Pour effectu et un signalement rien de plus simple vous prenez votre ordinateur (ou telephone mobile, ou tablette, ou telephone fixe (quoi que pas sur que cva marche avecx un fixe...), votre montre, votre chaussette, ... Je crois que je me suis egarer de quoi je parlais deja ???')">Aide au signalement </span>
                 </div>
                 <div class="input-group column">
                     <label for="">Suivre mon signalement</label>
-                    <span onclick="showModal('Aide au suivi', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Aide au suivi </span>
+                    <span onclick="showModal('Aide au suivi', 'Suivi ??? Heu... Comment expliquer ca... Allez sur les stats')">Aide au suivi </span>
                 </div>
                 
                 <div class="input-group column">
                     <label for="">Déposer un Contre Signalement</label>
-                    <span onclick="showModal('Aide à la parade', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Aide à la parade </span>
+                    <span onclick="showModal('Aide à la parade', 'Si tu as ete signaler rien a faire desoler. Le bouton est juste la pour te donner espoire ;)')">Aide à la parade </span>
                 </div>
             </div><br>
             <div class="france_connect column">
                 <h3>Une suggestion sur le site ?</h3>
                 <div class="input-group">
                     <label for="">Donner votre avis</label>
-                    <span onclick="showModal('Aide au Feedback', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Aide au Feedback</span>
+                    <span onclick="showModal('Aide au Feedback', 'Vrai Winner ne se remet jamais en question pas besoin de vos retour nous sommes tout simplement parfait ;)')">Aide au Feedback</span>
                 </div>
             </div><br>
             <div class="france_connect column">
@@ -91,7 +103,7 @@
                 <p>La Caisse des Dénonciations Françaises (CGF) lance bientôt la phase de test de son application mobile dédiée à la récompense et à la fidélité. Ce lancement en avant-première vous offre l’opportunité exclusive de découvrir en avant-première les nouvelles fonctionnalités : quêtes, missions, mini-jeux et bien plus encore ! En tant que Beta Testeur, vous pourrez explorer l’application, partager vos retours et contribuer à son perfectionnement. Votre avis est essentiel pour garantir une expérience optimale pour tous les utilisateurs. Inscrivez-vous dès maintenant pour devenir Beta Testeur et participez à cette aventure innovante ! Ensemble, construisons un service plus performant et engageant.</p>
                 <div class="input-group">
                     <label for="">Rejoignez la phase de Test</label>
-                    <span onclick="showModal('Installez l\'App !', 'Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.')">Android - IOS - Windows - MacOS - Linux</span>
+                    <span onclick="showModal('Installez l\'App !', 'Et mais les gars ??? Vous avez crue qu\'on été en 39-45 ou quoi ???? Non mais HO vous vous êtes pris pour Hitler ? Pour Pétin ? Pour Jean-Marie Le Pen ??? Pour Zemzem ??? Calmos !')">Android - IOS - Windows - MacOS - Linux</span>
                 </div>
             </div><br>
             <div class="action">
@@ -121,7 +133,7 @@
             </div>
         </div>
     </div>
-
+<script src="./assets/js/mobile_menu.js"></script>
     <!-- Scripts -->
     <script src="./assets/js/modal.js"></script>
 </body>

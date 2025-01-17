@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="top">
-            <div class="left">
+            <div class="left" id="franceflagger">
                 <div class="icone">
                     <div class="flag">
                         <img src="./assets/img/flag.webp" alt="">
@@ -21,15 +21,17 @@
                 </div>
             </div>
             <div class="middle">
-                <h2>Caisse des Denonciations Française</h2>
-                <h5>Le site officiel pour dénoncer comme en 39-45 !</h5>
+                <h2 id="mobile_middh2">CDF</h2>
+                <h5 id="mobile_middh5">Comme en 39-45</h5>
+                <h2 id="desk_middh2">Caisse des Denonciations Française</h2>
+                <h5 id="desk_middh5">Le site officiel pour dénoncer comme en 39-45 !</h5>
                 <div class="spacer"></div>
             </div>
             <div class="right">
                 <div class="top">
                     <div class="login" onclick="window.location.href = './login.html'">
                         <i></i>
-                        Se  connecter
+                        Signalements
                     </div>
                     <div class="deposer" onclick="window.location.href = './new.html'">Déposer un signalement</div>
                 </div>
@@ -43,8 +45,8 @@
         </div>
         <div class="navbar">
             <ul class="menu">
-                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset=""></a></li>
-                <li class="item"><a href="#">Statistiques</a></li>
+                <li class="item"><a href="#"><img src="./assets/img/icons/home.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item"><a href="stats.html">Statistiques</a></li>
                 <li class="item"><a href="map.html">Carte</a></li>
                 <li class="item"><a href="about.html">Platforme</a></li>
                 <li class="item"><a href="help.html">Aide</a></li>
@@ -53,15 +55,25 @@
                 <li class="item"><a href="legal_mentions.html">Mentions Légales</a></li>
             </ul>
         </div>
+        <div class="navbar_mobil">
+            <ul class="menu">
+                <li class="item_mobil"><a href="#" onclick="bgmenu()"><img src="./assets/img/icons/menu.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item_mobil" style="display:none"><a href="index.html">Home</a></li>
+                <li class="item_mobil" style="display:none"><a href="stats.html">Stats</a></li>
+                <li class="item_mobil" style="display:none"><a href="map.html">Map</a></li>
+                <li class="item_mobil" style="display:none"><a href="about.html">About</a></li>
+                <li class="item_mobil" style="display:none"><a href="help.html">Help</a></li>
+            </ul>
+        </div>
     </header>
     <div class="content">
         <div class="view">
             <div class="left">
-                <div class="item">
+                <div class="item" onclick="showStatsModal('Région', regions_labels, regions_counts)">
                     <h3>TOP 10</h3>
                     <h5>REGIONS</h5>
                 </div>
-                <div class="item">
+                <div class="item" onclick="showStatsModal('Département', departements_labels, departements_counts)">
                     <h3>TOP 10</h3>
                     <h5>DEPARTEMENT</h5>
                 </div>
@@ -70,52 +82,175 @@
                 <canvas id="myChart"></canvas>
             </div>
             <div class="right">
-                <div class="item">
+                <div class="item" onclick="showStatsModal('Ville', villes_labels, villes_counts)">
                     <h3>TOP 10</h3>
                     <h5>VILLES</h5>
                 </div>
-                <div class="item">
+                <div class="item" onclick="showStatsModal('Catégorie', categories_labels, categories_counts)">
                     <h3>TOP 10</h3>
                     <h5>CATEGORIES</h5>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="hideModal()">&times;</span>
+                <h2 class="modal_title_utils">Section Concrnée</h2>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <thead>
+                      <tr>
+                        <th class="table_title">{{title}}</th>
+                        <th>Number</th>
+                        <th>Place</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                    </tbody>
+                  </table>
+            </div>
+            <div class="modal-footer">
+                <button class="modal_button_utils">Accéder à la ressource</button>
+                <button class="close" onclick="hideModal()">Fermer</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // API & Authentification
+        let server = 'http://cours.localhost/2024-2025/challenge_web/';
+        let token = '289a1f7df886d34a6776665fd52f4d9da27b75e104202b809075f7b1d35d0f09';
+        let key = 'e1ef63c7ba4a2846bf3464d92f8dee560416849b2029c2d94b43aef3affe954b';
+
+        let regions_labels = [];
+        let regions_counts = [];
+
+        let departements_labels = [];
+        let departements_counts = [];
+
+        let villes_labels = [];
+        let villes_counts = [];
+
+        let categories_labels = [];
+        let categories_counts = [];
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         const ctx = document.getElementById('myChart');
-      
-        new Chart(ctx, {
-            type: 'polarArea',
-            data: {
-                labels: [
-                    'Enfants',
-                    'Jeunes',
-                    'Chomeurs',
-                    'Parents',
-                    'Retraités'
-                ],
-                datasets: [{
-                    label: 'Signalés (en milliers)',
-                    data: [7, 10, 15, 3, 14],
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(75, 192, 192)',
-                        'rgb(255, 205, 86)',
-                        'rgb(201, 203, 207)',
-                        'rgb(54, 162, 235)'
-                    ]
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+        fetch(`${server}?token=${token}&key=${key}&api=stats&action=ages`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Vérifier si la requête est réussie
+                if (data.out) {
+                    const labels = data.data.map(item => item.categorie);
+                    const counts = data.data.map(item => item.count);
+                    new Chart(ctx, {
+                        type: 'polarArea',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Signalés (en milliers)',
+                                data: counts    ,
+                                backgroundColor: [
+                                    'rgb(255, 99, 132)',
+                                    'rgb(75, 192, 192)',
+                                    'rgb(255, 205, 86)',
+                                    'rgb(201, 203, 207)',
+                                    'rgb(54, 162, 235)'
+                                ]
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    console.error('Erreur dans les données retournées');
                 }
-            }
-        });
-      </script>
+            })
+            .catch(error => {
+                console.error('Erreur de requête:', error);
+            });
+    </script>
+    <script>
+        fetch(`${server}?token=${token}&key=${key}&api=stats&action=regions`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Vérifier si la requête est réussie
+                if (data.out) {
+                    regions_labels = data.data.map(item => item.region);
+                    regions_counts = data.data.map(item => item.count);
+                } else {
+                    console.error('Erreur dans les données retournées pour region');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur de requête:', error);
+            });
+    </script>
+    <script>
+        fetch(`${server}?token=${token}&key=${key}&api=stats&action=departments`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Vérifier si la requête est réussie
+                if (data.out) {
+                    departements_labels = data.data.map(item => item.department);
+                    departements_counts = data.data.map(item => item.count);
+                } else {
+                    console.error('Erreur dans les données retournées pour departements');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur de requête:', error);
+            });
+    </script>
+    <script>
+        fetch(`${server}?token=${token}&key=${key}&api=stats&action=cities`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Vérifier si la requête est réussie
+                if (data.out) {
+                    villes_labels = data.data.map(item => item.city);
+                    villes_counts = data.data.map(item => item.count);
+                } else {
+                    console.error('Erreur dans les données retournées pour villes');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur de requête:', error);
+            });
+    </script>
+    <script>
+        fetch(`${server}?token=${token}&key=${key}&api=stats&action=categories`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Vérifier si la requête est réussie
+                if (data.out) {
+                    categories_labels = data.data.map(item => item.categorie);
+                    categories_counts = data.data.map(item => item.count);
+                } else {
+                    console.error('Erreur dans les données retournées pour categories');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur de requête:', error);
+            });
+    </script>
+    <script src="./assets/js/mobile_menu.js"></script>
+    <script src="./assets/js/modal.js"></script>
 </body>
 </html>

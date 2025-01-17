@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="top">
-            <div class="left">
+            <div class="left" id="franceflagger">
                 <div class="icone">
                     <div class="flag">
                         <img src="./assets/img/flag.webp" alt="">
@@ -23,17 +23,19 @@
                 </div>
             </div>
             <div class="middle">
-                <h2>Caisse des Denonciations Française</h2>
-                <h5>Le site officiel pour dénoncer comme en 39-45 !</h5>
+                <h2 id="mobile_middh2">CDF</h2>
+                <h5 id="mobile_middh5">Comme en 39-45</h5>
+                <h2 id="desk_middh2">Caisse des Denonciations Française</h2>
+                <h5 id="desk_middh5">Le site officiel pour dénoncer comme en 39-45 !</h5>
                 <div class="spacer"></div>
             </div>
             <div class="right">
                 <div class="top">
                     <div class="login" onclick="window.location.href = './login.html'">
                         <i></i>
-                        Se  connecter
+                        Signalements
                     </div>
-                    <div class="deposer">Déposer un signalement</div>
+                    <div class="deposer" onclick="window.location.href = './new.html'">Déposer un signalement</div>
                 </div>
                 <div class="bottom">
                     <div class="search">
@@ -45,7 +47,7 @@
         </div>
         <div class="navbar">
             <ul class="menu">
-                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset=""></a></li>
+                <li class="item"><a href="#"><img src="./assets/img/icons/home.svg" alt="" srcset="" id="menuBurger"></a></li>
                 <li class="item"><a href="stats.html">Statistiques</a></li>
                 <li class="item"><a href="map.html">Carte</a></li>
                 <li class="item"><a href="about.html">Platforme</a></li>
@@ -55,12 +57,22 @@
                 <li class="item"><a href="legal_mentions.html">Mentions Légales</a></li>
             </ul>
         </div>
+        <div class="navbar_mobil">
+            <ul class="menu">
+                <li class="item_mobil"><a href="#" onclick="bgmenu()"><img src="./assets/img/icons/menu.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item_mobil" style="display:none"><a href="index.html">Home</a></li>
+                <li class="item_mobil" style="display:none"><a href="stats.html">Stats</a></li>
+                <li class="item_mobil" style="display:none"><a href="map.html">Map</a></li>
+                <li class="item_mobil" style="display:none"><a href="about.html">About</a></li>
+                <li class="item_mobil" style="display:none"><a href="help.html">Help</a></li>
+            </ul>
+        </div>
     </header>
     <div class="content">
         <div class="form">
             <div class="france_connect">
                 <p>Vous êtes sur le point de dénoncer une personne, entreprise ou un comportement à l’aide d’un signalement en ligne</p>
-                <a href="#">Besoin d’aide ? </a>
+                <a href="./help.html">Besoin d’aide ? </a>
             </div>
             <div class="identifiants">
                 <h3>Signalement en ligne</h3>
@@ -102,11 +114,45 @@
                     <span>Ajoutez des images, videos, documents pour appuyer votre signalement</span>
                     <input id="files" type="file">
                 </div>
+                <!--<hr>
+                <div class="account_select">
+                    <h3>Créer mon compte ?</h3>
+                    <img id="arrower" src="./assets/img/icons/right-arrow-svgrepo-com.svg" width="30px">
+                </div>
+                <div class="register" hidden>
+                    <div class="input-group">
+                        <label for="">Adresse Email</label>
+                        <span>Elle ne sera pas publique mais pourra servir à vous contacter pour des précisions</span>
+                        <input id="email" type="text">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Mot de Passe</label>
+                        <span>Au moins : 1 Majuscule | 1 Minuscule | 1 Chiffre | 1 Caractère Spécial</span>
+                        <input id="password" type="password">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Confirmez Mot de Passe</label>
+                        <span style="color: brown;">Les mots de passes ne correspondent pas</span>
+                        <input id="repassword" type="password">
+                    </div>
+                </div>-->
                 <div class="action">
-                    <a href="#">Formats pris en compte ?</a>
+                    <a href="#formater" id="format"><u>Formats pris en compte ?</u></a>
                     <div class="separator"></div>
                     <button id="send">Envoyer</button>
                     <br><br>
+                </div>
+                <div class="france_connect" id="formater" style="display: none;">
+                    <p>
+                        Ce formulaire accepte les fichier au formats suivants : <br>
+                        <b>Images : </b> jpg, jpeg, png, gif <br>
+                        <b>Vidéos : </b> mp4, avi, mkv <br>
+                        <b>Documents : </b> pdf, doc, docx, xls, xlsx, ppt, pptx <br>
+                        <b>Audio : </b> mp3, wav, ogg <br>
+                        <b>Archives : </b> zip, rar, 7z, tar, gz, bz2 <br>
+                        <b>Autres : </b> txt, csv, json, nickel, plutonium, xml, html, css, js, php, py, onlyfans, java, c, cpp, h, hpp, cs, rb, mym, sh, myefrei, sql, pl, ps1, bat, vbs, psd, ai, indd, cdr, poop, svg, eps, tiff, ps, sketch, xd, fig, fbx, obj, stl, 3ds, blend, dae, faut avoir la deter pour tout lire en vrai de vrai de vrai de vrai gltf, usdz, rvt, dwg, .sylvain, dxf, ifc, .galtier
+                    </p>
+                    <a href="#" onclick="document.getElementById('formater').style.display = 'none'">OK Merci chef ! </a>
                 </div>
             </div>
         </div>
@@ -138,6 +184,28 @@
             }
         });
      </script>
-
+     <script>
+        document.querySelector("#format").addEventListener('click', function() {
+            if (document.getElementById('formater').style.display == 'none') {
+                document.getElementById('formater').style.display = 'block';
+            } else {
+                document.getElementById('formater').style.display = 'none';
+            }
+        });
+     </script>
+     <!--<script>
+        regizone = document.querySelector('.account_select');
+        regizone.addEventListener('click', function() {
+            let register = document.querySelector('.register');
+            if (register.hidden) {
+                register.hidden = false;
+                document.getElementById('arrower').style.transform = 'rotate(180deg)';
+            } else {
+                register.hidden = true;
+                document.getElementById('arrower').style.transform = 'rotate(0deg)';
+            }
+        }); 
+     </script>-->
+<script src="./assets/js/mobile_menu.js"></script>
 </body>
 </html>

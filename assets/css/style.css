@@ -236,3 +236,85 @@ header > .navbar > .menu > .item > a{
     flex-direction: column;
     align-items: center;
 }
+
+.navbar_mobil{
+    display: none;
+}
+
+#mobile_middh2{
+    display: none;
+}
+
+#mobile_middh5{
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    header > .top > .middle {
+        margin-left: 20px;
+    }
+    
+    
+    header > .navbar{
+        display: none;
+    }
+
+    .navbar_mobil{
+        display: flex;
+        
+    }
+   #menuBurger{
+        width:50px;
+        margin: 20px;
+    }
+
+    #mobile_middh2{
+        display: block;
+    }
+    
+    #mobile_middh5{
+        display: block;
+    }
+
+    #desk_middh2{
+        display: none;
+    }
+    
+    #desk_middh5{
+        display: none;
+    }
+
+    .item_mobil{
+        list-style: none;
+    }
+
+    header > .top > .right > .top > .login {
+        font-size: 0.7rem;
+    }
+    header > .top > .right > .top > .deposer {
+        font-size: 0.7rem;
+    }
+    ul.menu {
+        display: flex;
+        flex-direction: row; 
+        justify-content: center;
+        align-items: center;
+        list-style: none;  
+        margin: 0;
+        padding: 0;
+        gap:15px;
+      }
+    .item_mobil>a{
+        text-decoration: none;
+
+    }
+    .left
+    .right{
+        display: none;
+    }
+
+    #franceflagger{
+        display: none;
+    }
+      
+  }

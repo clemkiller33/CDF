@@ -6,13 +6,13 @@
 
     <!-- Link CSS Files -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/map.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
     <header>
         <div class="top">
-            <div class="left">
+            <div class="left" id="franceflagger">
                 <div class="icone">
                     <div class="flag">
                         <img src="./assets/img/flag.webp" alt="">
@@ -22,15 +22,17 @@
                 </div>
             </div>
             <div class="middle">
-                <h2>Caisse des Denonciations Française</h2>
-                <h5>Le site officiel pour dénoncer comme en 39-45 !</h5>
+                <h2 id="mobile_middh2">CDF</h2>
+                <h5 id="mobile_middh5">Comme en 39-45</h5>
+                <h2 id="desk_middh2">Caisse des Denonciations Française</h2>
+                <h5 id="desk_middh5">Le site officiel pour dénoncer comme en 39-45 !</h5>
                 <div class="spacer"></div>
             </div>
             <div class="right">
                 <div class="top">
                     <div class="login" onclick="window.location.href = './login.html'">
                         <i></i>
-                        Se  connecter
+                        Signalements
                     </div>
                     <div class="deposer" onclick="window.location.href = './new.html'">Déposer un signalement</div>
                 </div>
@@ -44,9 +46,9 @@
         </div>
         <div class="navbar">
             <ul class="menu">
-                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset=""></a></li>
+                <li class="item"><a href="#"><img src="./assets/img/icons/home.svg" alt="" srcset="" id="menuBurger"></a></li>
                 <li class="item"><a href="stats.html">Statistiques</a></li>
-                <li class="item"><a href="#">Carte</a></li>
+                <li class="item"><a href="map.html">Carte</a></li>
                 <li class="item"><a href="about.html">Platforme</a></li>
                 <li class="item"><a href="help.html">Aide</a></li>
                 <div class="separator"></div>
@@ -54,17 +56,28 @@
                 <li class="item"><a href="legal_mentions.html">Mentions Légales</a></li>
             </ul>
         </div>
+        <div class="navbar_mobil">
+            <ul class="menu">
+                <li class="item_mobil"><a href="#" onclick="bgmenu()"><img src="./assets/img/icons/menu.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item_mobil" style="display:none"><a href="index.html">Home</a></li>
+                <li class="item_mobil" style="display:none"><a href="stats.html">Stats</a></li>
+                <li class="item_mobil" style="display:none"><a href="map.html">Map</a></li>
+                <li class="item_mobil" style="display:none"><a href="about.html">About</a></li>
+                <li class="item_mobil" style="display:none"><a href="help.html">Help</a></li>
+            </ul>
+        </div>
     </header>
+<script src="./assets/js/mobile_menu.js"></script>
     <div class="content">
-        <iframe src="https://umap.openstreetmap.fr/fr/map/challenge-web_1161767#6/46.793/2.703" width="100%" height="80%" frameborder="0"></iframe>
-        <!--<div class="map" id="map" style="width: 100%; height: 100%;"></div>-->
+        <div class="map" id="map" style="width: 100%; height: 100%;"></div>
 
         </div>
     </div>
+
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <!-- <script>
+    <script>
         // Initialiser la carte
-        var map = L.map('map').setView([48.8566, 2.3522], 13); // Coordonnées de Paris
+        var map = L.map('map').setView([48.8566, 2.3522], 5); // Coordonnées de Paris
 
         // Ajouter une couche de tuiles (tiles layer)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -76,20 +89,21 @@
             L.geoJSON(geojsonData, {
                 onEachFeature: function (feature, layer) {
                     if (feature.properties && feature.properties.popupContent) {
-                        layer.bindPopup(feature.properties.popupContent);
-                    }
+                const popupContent = `<h4>Département:${feature.properties.name}</h4><br>${feature.properties.popupContent}`;
+                layer.bindPopup(popupContent);
+            }
                 }
             }).addTo(map);
         }
 
         // Pour charger des données GeoJSON depuis un fichier externe via un proxy
-        fetch('https://api.litmaaa.xyz/openstreetmap.php', {mode: 'no-cors'})
+        fetch('http://cours.localhost/2024-2025/challenge_web/?token=289a1f7df886d34a6776665fd52f4d9da27b75e104202b809075f7b1d35d0f09&key=e1ef63c7ba4a2846bf3464d92f8dee560416849b2029c2d94b43aef3affe954b&api=stats&action=geojson')
             .then(response => response.json())
             .then(data => {
                 console.log('GeoJSON chargé avec succès:', data);
                 addMarkersFromGeoJSON(data);
             })
             .catch(error => console.error('Erreur lors du chargement du GeoJSON:', error));
-    </script>-->
+    </script>
 </body>
 </html>
