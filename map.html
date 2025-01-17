@@ -30,23 +30,23 @@
             </div>
             <div class="right">
                 <div class="top">
-                    <div class="login" onclick="window.location.href = './login.html'">
+                    <div class="login" onclick="window.location.href = './search.html'">
                         <i></i>
                         Signalements
                     </div>
                     <div class="deposer" onclick="window.location.href = './new.html'">Déposer un signalement</div>
                 </div>
                 <div class="bottom">
-                    <div class="search">
-                        <input type="text" placeholder=" Recherchez une localisation, personne, faits, ...">
-                        <button>Q</button>
-                    </div>
+                    <form action="search.html" class="search">
+                        <input type="text" name="q" placeholder=" Recherchez une localisation, personne, faits, ...">
+                        <button type="submit">Q</button>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="navbar">
             <ul class="menu">
-                <li class="item"><a href="#"><img src="./assets/img/icons/home.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset="" id="menuBurger"></a></li>
                 <li class="item"><a href="stats.html">Statistiques</a></li>
                 <li class="item"><a href="map.html">Carte</a></li>
                 <li class="item"><a href="about.html">Platforme</a></li>
@@ -58,12 +58,14 @@
         </div>
         <div class="navbar_mobil">
             <ul class="menu">
-                <li class="item_mobil"><a href="#" onclick="bgmenu()"><img src="./assets/img/icons/menu.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item_mobil"><a href="index.html" onclick="bgmenu()"><img src="./assets/img/icons/menu.svg" alt="" srcset="" id="menuBurger"></a></li>
                 <li class="item_mobil" style="display:none"><a href="index.html">Home</a></li>
                 <li class="item_mobil" style="display:none"><a href="stats.html">Stats</a></li>
                 <li class="item_mobil" style="display:none"><a href="map.html">Map</a></li>
                 <li class="item_mobil" style="display:none"><a href="about.html">About</a></li>
                 <li class="item_mobil" style="display:none"><a href="help.html">Help</a></li>
+                <li class="item_mobil" style="display:none"><a href="confidentialité.html">Confidentialité</a></li>
+                <li class="item_mobil" style="display:none"><a href="legal_mentions.html">Mentions Légales</a></li>
             </ul>
         </div>
     </header>
@@ -73,37 +75,10 @@
 
         </div>
     </div>
-
+    <script src="./assets/js/auth.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        // Initialiser la carte
-        var map = L.map('map').setView([48.8566, 2.3522], 5); // Coordonnées de Paris
-
-        // Ajouter une couche de tuiles (tiles layer)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | <a href="https://www.mael-cv.xyz">Mael Chebbi Vigneau</a>',
-        }).addTo(map);
-
-        // Fonction pour ajouter des marqueurs à partir d'un GeoJSON
-        function addMarkersFromGeoJSON(geojsonData) {
-            L.geoJSON(geojsonData, {
-                onEachFeature: function (feature, layer) {
-                    if (feature.properties && feature.properties.popupContent) {
-                const popupContent = `<h4>Département:${feature.properties.name}</h4><br>${feature.properties.popupContent}`;
-                layer.bindPopup(popupContent);
-            }
-                }
-            }).addTo(map);
-        }
-
-        // Pour charger des données GeoJSON depuis un fichier externe via un proxy
-        fetch('http://cours.localhost/2024-2025/challenge_web/?token=289a1f7df886d34a6776665fd52f4d9da27b75e104202b809075f7b1d35d0f09&key=e1ef63c7ba4a2846bf3464d92f8dee560416849b2029c2d94b43aef3affe954b&api=stats&action=geojson')
-            .then(response => response.json())
-            .then(data => {
-                console.log('GeoJSON chargé avec succès:', data);
-                addMarkersFromGeoJSON(data);
-            })
-            .catch(error => console.error('Erreur lors du chargement du GeoJSON:', error));
+    <script src="./assets/js/map.js">
+        
     </script>
 </body>
 </html>

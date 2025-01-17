@@ -31,23 +31,23 @@
             </div>
             <div class="right">
                 <div class="top">
-                    <div class="login" onclick="window.location.href = './login.html'">
+                    <div class="login" onclick="window.location.href = './search.html'">
                         <i></i>
                         Signalements
                     </div>
                     <div class="deposer" onclick="window.location.href = './new.html'">Déposer un signalement</div>
                 </div>
                 <div class="bottom">
-                    <div class="search">
-                        <input type="text" placeholder=" Recherchez une localisation, personne, faits, ...">
-                        <button>Q</button>
-                    </div>
+                    <form action="search.html" class="search">
+                        <input type="text" name="q" placeholder=" Recherchez une localisation, personne, faits, ...">
+                        <button type="submit">Q</button>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="navbar">
             <ul class="menu">
-                <li class="item"><a href="#"><img src="./assets/img/icons/home.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset="" id="menuBurger"></a></li>
                 <li class="item"><a href="stats.html">Statistiques</a></li>
                 <li class="item"><a href="map.html">Carte</a></li>
                 <li class="item"><a href="about.html">Platforme</a></li>
@@ -59,31 +59,33 @@
         </div>
         <div class="navbar_mobil">
             <ul class="menu">
-                <li class="item_mobil"><a href="#" onclick="bgmenu()"><img src="./assets/img/icons/menu.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item_mobil"><a href="index.html" onclick="bgmenu()"><img src="./assets/img/icons/menu.svg" alt="" srcset="" id="menuBurger"></a></li>
                 <li class="item_mobil" style="display:none"><a href="index.html">Home</a></li>
                 <li class="item_mobil" style="display:none"><a href="stats.html">Stats</a></li>
                 <li class="item_mobil" style="display:none"><a href="map.html">Map</a></li>
                 <li class="item_mobil" style="display:none"><a href="about.html">About</a></li>
                 <li class="item_mobil" style="display:none"><a href="help.html">Help</a></li>
+                <li class="item_mobil" style="display:none"><a href="confidentialité.html">Confidentialité</a></li>
+                <li class="item_mobil" style="display:none"><a href="legal_mentions.html">Mentions Légales</a></li>
             </ul>
         </div>
     </header>
     <div class="content">
         <div class="form">
-            <h2>Intitulé du Signalement</h2>
+            <h2 id="sign_title">Intitulé du Signalement</h2>
             <div class="input-group">
                 <label for="">Déposé le :</label>
-                <span>JJ / MM / AAAA    à   HH : MM</span>
+                <span><i id="sign_date1">JJ / MM / AAAA </i> à <i id="sign_heure">HH : MM</i></span>
             </div>
             <div class="input-group">
                 <label for="">Faits remontant au :</label>
-                <span>JJ / MM / AAAA </span>
+                <span><i id="sign_date2">JJ / MM / AAAA</i></span>
                 <label for="">à</label>
-                <span>VILLE (00000) </span>
+                <span><i id="sign_city">VILLE (00000)</i> </span>
             </div>
             <div class="france_connect">
                 <p>Pieces complémentaires</p>
-                <div class="files">
+                <div class="files" onclick="showFileModal()">
                     <button><img src="./assets/img/icons/picture.svg" alt=""></button>
                     <button><img src="./assets/img/icons/doc.svg" alt=""></button>
                     <button class="row"><img src="./assets/img/icons/video.svg" alt=""></button>
@@ -92,17 +94,45 @@
             </div><br>
             <div class="input-group column">
                 <label for="">Description du signalement</label>
-                <span>Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.
+                <span id="sign_description">Lorem ipsum dolor sit amet consectetur. Aliquam facilisis eu ut est pulvinar ut consectetur mollis. Pellentesque nunc eu gravida bibendum pretium hac aliquam viverra. Egestas nibh commodo orci duis consequat magnis diam lacus imperdiet. Vitae molestie egestas nulla sodales dis. Scelerisque urna nisl donec a eget gravida ut venenatis. Pharetra sit aliquam id diam nibh curabitur sociis.
                     <br><br>
                     Turpis ornare quis donec laoreet mauris a vel turpis vel. Magna enim consequat aliquet ipsum nisi. Diam ullamcorper eu feugiat ullamcorper nulla nulla. Enim bibendum proin amet viverra. Nunc viverra quis tellus nibh.
                 </span>
             </div>
-            <div class="action">
-                <a href="#">Contre-signalement</a>
-                <div class="separator"></div>
-                <button>Utile</button>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="hideModal()">&times;</span>
+                <h2 class="modal_title_utils">Fichiers</h2>
+            </div>
+            <div class="modal-body">
+                <div class="tab">
+                  </div>
+                  
+                  <div id="London" class="tabcontent">
             </div>
         </div>
-    </div><script src="./assets/js/mobile_menu.js"></script>
+    </div>
+    <script src="./assets/js/auth.js"></script>
+    <script src="./assets/js/mobile_menu.js"></script>
+    <script src="./assets/js/modal.js"></script>
+    <script src="./assets/js/signalement.js"></script>
+    <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        </script>
 </body>
 </html>

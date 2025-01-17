@@ -21,6 +21,15 @@ function showModal(title, content, button=false) {
     
 }
 
+function showFileModal() {
+    // button = {text: 'text', action: 'action'}
+    let modal = document.querySelector('.modal');
+
+    modalStatus = true;
+    modal.style.display = 'flex';
+    
+}
+
 function showStatsModal(title, labels, counts) {
     // button = {text: 'text', action: 'action'}
     let modal = document.querySelector('.modal');

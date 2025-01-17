@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Caisse des Denonciations Française</title>
-
-    <link rel="icon" href="./assets/img/flag.webp" type="image/webp">
-
-    <!-- Link CSS Files -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/login.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signalement unitaire</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/search.css" />
 </head>
 <body>
     <header>
@@ -70,32 +67,13 @@
             </ul>
         </div>
     </header>
-    <div class="content">
-        <div class="form">
-            <h2>Se connecter</h2>
-            <div class="france_connect">
-                <p>FranceConnect est la solution proposée par l’Etat pour sécuriser et simplifier la connexion à vos services en ligne.</p>
-                <button class="fc_btn"></button>
-                <a href="#">Qu'est-ce que FranceConnect ? </a>
-            </div>
-            <div class="identifiants">
-                <h3>Ou utiliser vos identifiants</h3>
-                <div class="input-group">
-                    <label for="">Votre email personnel</label>
-                    <span>Par exemple : nom@example.com</span>
-                    <input type="text">
-                </div>
-                <div class="input-group">
-                    <label for="">Votre mot de passe</label>
-                    <input type="text">
-                </div>
-                <div class="action">
-                    <a href="#">Mot de passe oublié ?</a>
-                    <div class="separator"></div>
-                    <button>Se connecter</button>
-                </div>
-            </div>
-        </div>
-    </div><script src="./assets/js/mobile_menu.js"></script>
+  <div id="content">
+    <h2>Résultat de recherche pour :</h2>
+    <div id="grid_recherche">
+      
+    </div>
+  </div>
+  <script src="./assets/js/auth.js"></script>
+  <script src="./assets/js/search.js"></script>
 </body>
 </html>

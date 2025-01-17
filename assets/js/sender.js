@@ -5,7 +5,7 @@ let description = document.querySelector('#description');
 let categories = document.querySelector('#selector');
 let localisation = document.querySelector('#location');
 let city_zip = document.querySelector('#city_zip');
-// let files = document.getElementById('files');
+let files = document.getElementById('files');
 let button = document.querySelector('#send');
 
 // Ajoute un événement au clic sur le bouton
@@ -18,7 +18,7 @@ button.addEventListener("click", function() {
     let categoriesValue = Array.from(categories.selectedOptions).map(option => option.value);
     let locationValue = localisation.value;
     let city_zipValue = city_zip.value;
-    // let filesValue = files.value;
+    let filesValue = files.files;  // Récupère les fichiers
 
     // Vérifie si les champs sont vides
     if (titleValue === '' || dateValue === '' || descriptionValue === '' || categoriesValue.length === 0 || locationValue === '' || city_zipValue === '') {
@@ -34,7 +34,11 @@ button.addEventListener("click", function() {
     formData.append('categories', categoriesValue.join(','));
     formData.append('location', locationValue);
     formData.append('city_zip', city_zipValue);
-    // formData.append('files', filesValue);
+
+    // Ajoute les fichiers au FormData (pour chaque fichier)
+    for (let i = 0; i < filesValue.length; i++) {
+        formData.append('files[]', filesValue[i]);
+    }
 
     // Effectue une requête POST à l'API
     fetch(`${server}?token=${token}&key=${key}&api=add&action=post`, {

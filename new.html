@@ -31,23 +31,23 @@
             </div>
             <div class="right">
                 <div class="top">
-                    <div class="login" onclick="window.location.href = './login.html'">
+                    <div class="login" onclick="window.location.href = './search.html'">
                         <i></i>
                         Signalements
                     </div>
                     <div class="deposer" onclick="window.location.href = './new.html'">Déposer un signalement</div>
                 </div>
                 <div class="bottom">
-                    <div class="search">
-                        <input type="text" placeholder=" Recherchez une localisation, personne, faits, ...">
-                        <button>Q</button>
-                    </div>
+                    <form action="search.html" class="search">
+                        <input type="text" name="q" placeholder=" Recherchez une localisation, personne, faits, ...">
+                        <button type="submit">Q</button>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="navbar">
             <ul class="menu">
-                <li class="item"><a href="#"><img src="./assets/img/icons/home.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item"><a href="index.html"><img src="./assets/img/icons/home.svg" alt="" srcset="" id="menuBurger"></a></li>
                 <li class="item"><a href="stats.html">Statistiques</a></li>
                 <li class="item"><a href="map.html">Carte</a></li>
                 <li class="item"><a href="about.html">Platforme</a></li>
@@ -59,12 +59,14 @@
         </div>
         <div class="navbar_mobil">
             <ul class="menu">
-                <li class="item_mobil"><a href="#" onclick="bgmenu()"><img src="./assets/img/icons/menu.svg" alt="" srcset="" id="menuBurger"></a></li>
+                <li class="item_mobil"><a href="index.html" onclick="bgmenu()"><img src="./assets/img/icons/menu.svg" alt="" srcset="" id="menuBurger"></a></li>
                 <li class="item_mobil" style="display:none"><a href="index.html">Home</a></li>
                 <li class="item_mobil" style="display:none"><a href="stats.html">Stats</a></li>
                 <li class="item_mobil" style="display:none"><a href="map.html">Map</a></li>
                 <li class="item_mobil" style="display:none"><a href="about.html">About</a></li>
                 <li class="item_mobil" style="display:none"><a href="help.html">Help</a></li>
+                <li class="item_mobil" style="display:none"><a href="confidentialité.html">Confidentialité</a></li>
+                <li class="item_mobil" style="display:none"><a href="legal_mentions.html">Mentions Légales</a></li>
             </ul>
         </div>
     </header>
@@ -112,30 +114,8 @@
                 <div class="input-group">
                     <label for="">Fichiers Additionnels</label>
                     <span>Ajoutez des images, videos, documents pour appuyer votre signalement</span>
-                    <input id="files" type="file">
+                    <input id="files" type="file" multiple>
                 </div>
-                <!--<hr>
-                <div class="account_select">
-                    <h3>Créer mon compte ?</h3>
-                    <img id="arrower" src="./assets/img/icons/right-arrow-svgrepo-com.svg" width="30px">
-                </div>
-                <div class="register" hidden>
-                    <div class="input-group">
-                        <label for="">Adresse Email</label>
-                        <span>Elle ne sera pas publique mais pourra servir à vous contacter pour des précisions</span>
-                        <input id="email" type="text">
-                    </div>
-                    <div class="input-group">
-                        <label for="">Mot de Passe</label>
-                        <span>Au moins : 1 Majuscule | 1 Minuscule | 1 Chiffre | 1 Caractère Spécial</span>
-                        <input id="password" type="password">
-                    </div>
-                    <div class="input-group">
-                        <label for="">Confirmez Mot de Passe</label>
-                        <span style="color: brown;">Les mots de passes ne correspondent pas</span>
-                        <input id="repassword" type="password">
-                    </div>
-                </div>-->
                 <div class="action">
                     <a href="#formater" id="format"><u>Formats pris en compte ?</u></a>
                     <div class="separator"></div>
@@ -159,12 +139,7 @@
     </div>
 
     <!-- JS Scripts -->
-    <script>
-        // API & Authentification
-        let server = 'http://cours.localhost/2024-2025/challenge_web/';
-        let token = '289a1f7df886d34a6776665fd52f4d9da27b75e104202b809075f7b1d35d0f09';
-        let key = 'e1ef63c7ba4a2846bf3464d92f8dee560416849b2029c2d94b43aef3affe954b';
-    </script>
+    <script src="./assets/js/auth.js"></script>
     <!-- Send Data -->
     <script src="./assets/js/sender.js">
     </script>
@@ -175,7 +150,7 @@
     <!-- Display Selected Categories -->
     <script src="./assets/js/displayer.js"></script>
     <!-- Date Parser -->
-     <script>
+    <script>
         let date = document.getElementById('date');
         date.addEventListener('input', function() {
             let value = date.value;
@@ -183,8 +158,8 @@
                 date.value += '-';
             }
         });
-     </script>
-     <script>
+    </script>
+    <script>
         document.querySelector("#format").addEventListener('click', function() {
             if (document.getElementById('formater').style.display == 'none') {
                 document.getElementById('formater').style.display = 'block';
@@ -192,20 +167,7 @@
                 document.getElementById('formater').style.display = 'none';
             }
         });
-     </script>
-     <!--<script>
-        regizone = document.querySelector('.account_select');
-        regizone.addEventListener('click', function() {
-            let register = document.querySelector('.register');
-            if (register.hidden) {
-                register.hidden = false;
-                document.getElementById('arrower').style.transform = 'rotate(180deg)';
-            } else {
-                register.hidden = true;
-                document.getElementById('arrower').style.transform = 'rotate(0deg)';
-            }
-        }); 
-     </script>-->
-<script src="./assets/js/mobile_menu.js"></script>
+    </script>
+    <script src="./assets/js/mobile_menu.js"></script>
 </body>
 </html>
